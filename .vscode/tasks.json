@@ -7,6 +7,11 @@
             "args": [
                 "-g",
                 "${file}",
+                "./array.c",
+                "./bst.c",
+                "datagenerator.c",
+                "hash.c",
+                "linkedlist.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

@@ -2,6 +2,7 @@
     "files.associations": {
         "stdlib.h": "c",
         "datagenerator.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "string.h": "c"
     }
 }
