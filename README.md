@@ -22,7 +22,7 @@
 
 ### insert data set
 
-產生指定數量整數，每筆數字是唯一，用來insert進資料結構
+產生指定數量整數，每筆數字是唯一，用來 insert 進資料結構
 
 ```c
 int genInsertDataSet(int dataSize) {
@@ -61,17 +61,15 @@ int genQueryDataSet(int datasize) {
 }
 ```
 
-
-
 ## 資料結構實做
 
 ### Linked list
 
-每個node儲存資料並儲存指向下一個或前一個node位置的指標
+每個 node 儲存資料並儲存指向下一個或前一個 node 位置的指標
 
 #### insert
 
-將目標insert進Linked list前方
+將目標 insert 進 Linked list 前方
 
 ```c
 struct LinkedList* ll_insert(struct LinkedList* node, int target) {
@@ -108,7 +106,7 @@ struct LinkedList* ll_find(struct LinkedList* node, int target) {
 
 #### insert
 
-將目標insert進該array中
+將目標 insert 進該 array 中
 
 ```c
 struct Arr* arr_insert(struct Arr* arr, int target) {
@@ -127,7 +125,7 @@ struct Arr* arr_insert(struct Arr* arr, int target) {
 
 #### find with binary search
 
-用二元搜尋法在array中尋找值
+用二元搜尋法在 array 中尋找值
 
 ```c
 int* arr_bs_find(struct Arr* arr, int target) {
@@ -174,7 +172,7 @@ int* arr_traverse_find(struct Arr* arr, int target) {
 
 #### insert
 
-將目標insert進該資料結構中
+將目標 insert 進該資料結構中
 
 ```c
 struct Bst* bst_insert(struct Bst* node, int target) {
@@ -215,7 +213,7 @@ struct Bst* bst_find(struct Bst* node, int target) {
 
 #### hash function
 
-以原始數字透過hash function產生一組新數
+以原始數字透過 hash function 產生一組新數
 
 ```c
 int hash65(int num) {
@@ -234,7 +232,7 @@ int hash65(int num) {
 
 #### insert
 
-將目標insert進該資料結構中
+將目標 insert 進該資料結構中
 
 ```c
 struct hash_node** hash_insert(struct hash_node** hashTable, int target) {
@@ -251,7 +249,7 @@ struct hash_node** hash_insert(struct hash_node** hashTable, int target) {
 
 #### handle collision
 
-當遇到hash value衝突，使用linked list insert at front
+當遇到 hash value 衝突，使用 linked list insert at front
 
 ```c
 struct hash_node* hash_ll_insert(struct hash_node* node, int target) {
@@ -285,8 +283,6 @@ struct hash_node* hash_find(struct hash_node** hashTable, int target) {
 }
 ```
 
-
-
 ## 執行時間
 
 ##### (取三次結果，同一次 test 使用相同測資，使用參數-d 1e5 -q 1e4，單位為毫秒)
@@ -294,23 +290,23 @@ struct hash_node* hash_find(struct hash_node** hashTable, int target) {
 #### 第一次結果
 
 ```
-bst: 
+bst:
 building time: 32.90 ms
 query time: 3.56 ms
 
-bs: 
+bs:
 building time: 0.56 ms
 query time: 1.54 ms
 
-arr: 
+arr:
 building time: 0.51 ms
 query time: 1432.03 ms
 
-ll: 
+ll:
 building time: 2.47 ms
 query time: 2622.17 ms
 
-hash: 
+hash:
 building time: 53.86 ms
 query time: 1.64 ms
 ```
@@ -318,23 +314,23 @@ query time: 1.64 ms
 #### 第二次結果
 
 ```
-bst: 
+bst:
 building time: 30.80 ms
 query time: 3.52 ms
 
-bs: 
+bs:
 building time: 0.68 ms
 query time: 1.70 ms
 
-arr: 
+arr:
 building time: 0.52 ms
 query time: 1422.75 ms
 
-ll: 
+ll:
 building time: 2.49 ms
 query time: 2549.99 ms
 
-hash: 
+hash:
 building time: 53.55 ms
 query time: 1.52 ms
 ```
@@ -342,30 +338,28 @@ query time: 1.52 ms
 #### 第三次結果
 
 ```
-bst: 
+bst:
 building time: 31.70 ms
 query time: 2.99 ms
 
-bs: 
+bs:
 building time: 0.57 ms
 query time: 1.81 ms
 
-arr: 
+arr:
 building time: 0.59 ms
 query time: 1409.55 ms
 
-ll: 
+ll:
 building time: 2.31 ms
 query time: 2596.34 ms
 
-hash: 
+hash:
 building time: 53.41 ms
 query time: 1.57 ms
 ```
 
-
-
-####　花費時間
+#### 花費時間
 
 ##### build
 
@@ -374,8 +368,6 @@ Hash > Binary Search Tree > Linked List > Array with binary search = Array with 
 ##### query
 
 Linked List > Array with traversal search > Array with binary search > Binary Search Tree > Hash
-
-
 
 #### 速度
 
@@ -386,8 +378,6 @@ Array with traversal search = Array with binary search > Linked List > Binary Se
 ##### query
 
 Hash > Binary Search Tree > Array with binary search > Array with traversal search > Linked List
-
-
 
 ## 時間複雜度
 
@@ -412,8 +402,6 @@ Hash > Binary Search Tree > Array with binary search > Array with traversal sear
 #### Binary Search Tree: O(log(n))
 
 #### Hash: O(1)
-
-
 
 ## 空間複雜度
 
@@ -441,9 +429,9 @@ Hash > Binary Search Tree > Array with binary search > Array with traversal sear
 
 ## 總結
 
-結構建立上hash花費時間較多其次為Binary Search Tree，其餘linked list與array時間相近。
+結構建立上 hash 花費時間較多其次為 Binary Search Tree，其餘 linked list 與 array 時間相近。
 
-查詢上Hash最快其次有運用到Binary search的查詢速度較快，最慢為依序尋訪。
+查詢上 Hash 最快其次有運用到 Binary search 的查詢速度較快，最慢為依序尋訪。
 
 在建立或查詢資料較多時，花費時間根據不同資料結構差異相當大，尤其是一般的尋訪搜尋常常會遇到搜尋不完的情形。
 
