@@ -11,7 +11,7 @@ struct hash_node {
 };
 
 int hash65(int num) {
-    int sum;
+    long long sum;
     int i;
     char word[8];
     sprintf(word, "%d", num);
@@ -20,7 +20,7 @@ int hash65(int num) {
     for (i = 0; i < len; i++) {
         sum = word[i] + sum * 65;
     }
-    return sum % 10000000;
+    return (int)(sum % 10000000);
 }
 struct hash_node* hash_find(struct hash_node** hashTable, int target) {
     int hv = hash65(target);

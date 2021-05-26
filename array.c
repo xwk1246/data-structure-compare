@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 struct Arr {
-    int data[1000000];
+    int data[10000000];
     int tail;
 };
 struct Arr* arr_insert(struct Arr* arr, int target) {
@@ -14,8 +14,9 @@ struct Arr* arr_insert(struct Arr* arr, int target) {
     }
     arr->data[arr->tail] = target;
     arr->tail++;
+    return arr;
 }
-int* arr_iterate_find(struct Arr* arr, int target) {
+int* arr_traverse_find(struct Arr* arr, int target) {
     int i;
     for (i = 0; i < arr->tail; i++) {
         if (arr->data[i] == target) {
@@ -33,7 +34,6 @@ int* arr_bs_find(struct Arr* arr, int target) {
     int front, back;
     int mid;
     int i;
-    qsort(arr->data, arr->tail, sizeof(int), compare);
     front = 0;
     back = arr->tail - 1;
     mid = (front + back) / 2;

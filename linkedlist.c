@@ -7,19 +7,24 @@ struct LinkedList {
 
 struct LinkedList* ll_insert(struct LinkedList* node, int target) {
     struct LinkedList* ptr;
+    ptr = (struct LinkedList*)malloc(sizeof(struct LinkedList));
+    ptr->data = target;
     if (!node) {
-        ptr = (struct LinkedList*)malloc(sizeof(struct LinkedList));
-        ptr->data = target;
         ptr->next = NULL;
         return ptr;
     }
-    node->next = ll_insert(node->next, target);
-    return node;
+    ptr->next = node;
+    return ptr;
 }
 
 struct LinkedList* ll_find(struct LinkedList* node, int target) {
-    if (node->data == target)
-        return node;
-    return ll_find(node->next, target);
+    struct LinkedList* current;
+    current = node;
+    while (current != NULL) {
+        if (current->data == target)
+            return current;
+        current = current->next;
+    }
+    return NULL;
 }
 
